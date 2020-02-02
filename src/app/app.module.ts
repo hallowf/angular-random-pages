@@ -4,11 +4,15 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopNavComponent } from './top-nav/top-nav.component';
-
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { ShopComponent } from './shop/shop.component';
-import { QuotesComponent } from './quotes/quotes.component'
+import { QuotesComponent } from './quotes/quotes.component';
+import { NotFoundComponent } from './not-found/not-found.component'
+
+import { QuotesService } from './quotes.service';
+
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,14 +20,18 @@ import { QuotesComponent } from './quotes/quotes.component'
     TopNavComponent,
     HomeComponent,
     ShopComponent,
-    QuotesComponent
+    QuotesComponent,
+    NotFoundComponent
   ],
   imports: [
     NgbModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    QuotesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
