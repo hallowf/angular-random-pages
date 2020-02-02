@@ -1,1 +1,8 @@
-<p>quotes works!</p>
+<h1>Random stuff from the internet</h1>
+<ul>
+  <li *ngFor='let quote of quotes'>
+    {{ quote }}
+  </li>
+</ul>
+<button (click)='clearJokes()'>Clear!</button>
+<button (click)='fetchJokes()'>Fetch Jokes!</button>
