@@ -7,25 +7,25 @@ import { QuotesService } from '../quotes.service';
   styleUrls: ['./quotes.component.scss']
 })
 export class QuotesComponent implements OnInit {
-  private quotes = []
+  jokes = []
 
   constructor(private service: QuotesService) {
     
   }
 
   clearJokes(): void {
-    this.quotes = []
+    this.jokes = []
   }
 
   fetchJokes(): void {
     this.service.getChuckJoke().subscribe((data) => {
-      this.quotes.push(data['value']['joke'])
+      this.jokes.push(data['value']['joke'])
     })
     this.service.getJJoke().subscribe((data)=> {
-      this.quotes.push(data['joke'])
+      this.jokes.push(data['joke'])
     })
     this.service.getOJJoke().subscribe((data) => {
-      this.quotes.push(data[0]['setup'] + ' ' + data[0]['punchline'])
+      this.jokes.push(data[0]['setup'] + ' ' + data[0]['punchline'])
     })
   }
 
